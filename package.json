@@ -14,7 +14,6 @@
     "test:watch": "concurrently 'yarn start' 'yarn test --watch' -c 'magenta,blue' -n 'build,test'"
   },
   "main": "index.js",
-  "author": "Akshay Nair <phenax5@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "bs-platform": "^9.0.1",
