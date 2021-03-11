@@ -1,13 +1,17 @@
 
-type ('o,'v) t = (('o -> 'v)* ('o -> 'v -> 'o))
+type ('before, 'getValue, 'setValue, 'after) t
 
-val make : ('o -> 'v) -> ('o -> 'v -> 'o) -> ('o,'v) t
+val make : ('before -> 'getValue) -> ('before -> 'setValue -> 'after) -> ('before, 'getValue, 'setValue, 'after) t
 
-val get : 'a -> ('a,'b) t -> 'b
+val get : 'before -> ('before, 'getValue, 'setValue, 'after) t-> 'getValue
 
-val set : 'a -> ('a,'b) t -> 'b -> 'a
+val set : 'before -> ('before, 'getValue, 'setValue, 'after) t-> 'setValue -> 'after
 
-val over : 'a -> ('a,'b) t -> ('b -> 'b) -> 'a
+val over : 'before -> ('before, 'getValue, 'setValue, 'after) t-> ('getValue -> 'setValue) -> 'after
 
-val dot : ('o,'a) t -> ('a,'b) t -> ('o,'b) t
+val dot : ('before, 'getValue, 'setValue, 'after) t 
+    -> ('getValue, 'newGetValue, 'newSetValue, 'setValue) t 
+    -> ('before, 'newGetValue, 'newSetValue, 'after) t
+
+(* val traversed : ('b, 'a array, 'b array, ) t -> ('o, 'a array, 'a -> 'b) t *)
 

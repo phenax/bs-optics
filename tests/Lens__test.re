@@ -38,21 +38,37 @@ describe("Lens.over", ({test, _}) => {
   });
 });
 
-describe("Lens.dot", ({test, _}) => {
-  let firstCommentText = Post.firstComment->Lens.dot(Comment.text);
+// describe("Lens.dot", ({test, _}) => {
+//   let firstCommentText = Post.firstComment->Lens.dot(Comment.text);
 
-  test("should allow getting nested values", ({expect, _}) => {
-    let value = dummyPost->Lens.get(firstCommentText);
-    expect.string(value).toEqual("duck my sick");
-  });
+//   test("should allow getting nested values", ({expect, _}) => {
+//     let value = dummyPost->Lens.get(firstCommentText);
+//     expect.string(value).toEqual("duck my sick");
+//   });
 
-  test("should allow setting nested values", ({expect, _}) => {
-    let value = dummyPost->Lens.set(firstCommentText, "changed to this");
-    expect.value(value.comments[0]).toEqual({
-      ...value.comments[0],
-      text: "changed to this",
-    });
-  });
-});
+//   test("should allow setting nested values", ({expect, _}) => {
+//     let value = dummyPost->Lens.set(firstCommentText, "changed to this");
+//     expect.value(value.comments[0]).toEqual({
+//       ...value.comments[0],
+//       text: "changed to this",
+//     });
+//   });
+// });
 
+// describe("Lens.traversed", ({test, _}) => {
+//   let firstCommentText = Post.comments->Lens.traversed->Lens.dot(Comment.text);
+
+//   test("should allow getting nested values", ({expect, _}) => {
+//     let value = dummyPost->Lens.get(firstCommentText);
+//     expect.string(value).toEqual("duck my sick");
+//   });
+
+//   test("should allow setting nested values", ({expect, _}) => {
+//     let value = dummyPost->Lens.set(firstCommentText, "changed to this");
+//     expect.value(value.comments[0]).toEqual({
+//       ...value.comments[0],
+//       text: "changed to this",
+//     });
+//   });
+// });
 

@@ -40,5 +40,5 @@ let dummyPost: Post.t = {
   tags: ["hello", "world", "foo", "bar"],
 }
 
-let stringLens: Lens.t(string, string) = Lens.make(id, (o, k) => o ++ k)
+let stringLens: Lens.t(string, string, string, string) = Lens.make(id, (o, k) => o ++ k)
 
